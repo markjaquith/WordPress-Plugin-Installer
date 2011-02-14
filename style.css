@@ -1,0 +1,22 @@
+body { margin: 0; padding: 0; font-size: 24px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; background: #f9f9f9; }
+body#install { background: #f9f9f9 url(install.gif) 0 0 repeat-x; }
+#wrap { width: 800px; margin: 50px auto; }
+#errors { margin-bottom: 50px; text-align: center; background: #f99; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+#errors p { padding: 5px; }
+#errors p span { font-weight: bold; }
+table { width: 100%; }
+td { padding: 10px 0; }
+td.label { white-space: nowrap; text-align: right; padding-right: 10px; text-wrap: none; }
+td.val { width: 100%; text-align: right; }
+td.val input { height: 24px; font-size: 20px; color: #333; width: 90% }
+#s { padding: 5px 10px; font-size: 16px; font-weight: bold; background: #acc; border: 1px solid #555; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; box-shadow: 10px 10px 5px #888; -moz-box-shadow: 3px 3px 5px #888; -webkit-box-shadow: 3px 3px 5px #888; }
+#install { text-align: right; }
+h1 { font-size: 18px; color: #333; font-weight: normal; text-align: center; }
+h1 span { color: #000; font-weight: bold; }
+iframe { border: 0; position: absolute; top: 100px; }
+#install-box { text-align: left; }
+#about p { font-size: 18px; font-family: Georgia, serif; padding: 5px 20px; }
+#about h2 { font-size: 18px; padding: 0 20px; margin: 0; } 
+#about { border: 1px solid #aaa; background: #ccc url(wp.png) 15px 50% no-repeat; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; padding-left: 115px; min-height: 110px; }
+a, a:visited { color: #252; }
+code { font-size: 14px; }
