@@ -52,6 +52,8 @@ if ( isset( $_POST['form'] ) ) {
 		// Still here? Let's grab the WP install directory URL:
 		$wpdir = str_replace( 'xmlrpc.php', '', $headers['X-Pingback'] );
 		$install = true;
+		header( "Location: " . $wpdir . 'wp-admin/plugin-install.php?tab=plugin-information&plugin=' . $plugin );
+		exit();
 	} catch( Exception $e ) {
 		$errors = '<span>Error:</span> ' . $e->getMessage();
 	}
