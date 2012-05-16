@@ -30,7 +30,7 @@ if ( isset( $_POST['form'] ) ) {
 		$headers = @get_headers( $url, true );
 		if ( !$headers )
 			throw new Exception( "Invalid URL" );
-		if ( is_array( $headers['X-Pingback'] ) )
+		if ( isset( $headers['X-Pingback'] ) && is_array( $headers['X-Pingback'] ) )
 			$headers['X-Pingback'] = $headers['X-Pingback'][0];
 		if ( !isset( $headers['X-Pingback'] ) || substr( $headers['X-Pingback'], -10 ) !== 'xmlrpc.php' ) {
 			// Gonna have to look at the contents
