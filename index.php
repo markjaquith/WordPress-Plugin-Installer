@@ -85,11 +85,11 @@ if ( isset( $_POST['form'] ) ) {
 	<link rel="stylesheet" href="style.css?v=2" type="text/css" />
 	<title>WordPress Plugin Installer</title>
 </head>
-<body<?php if ( $install ) {?> id="install"<?php } ?>>
+<body<?php if ( isset( $install ) && $install ) {?> id="install"<?php } ?>>
 <div id="wrap">
-<?php if ( !$install ) : ?>
+<?php if ( !isset( $install ) || !$install ) : ?>
 <div id="about">
-<?php if ( $about ) : ?>
+<?php if ( isset( $about ) && $about ) : ?>
 <p>This tool makes it easy to directly install a WordPress plugin.</p>
 <h2>Users</h2>
 <p>Drag this to your bookmarks bar: <a onclick="return false;" href="javascript:l=window.location.toString();window.location='http://coveredwebservices.com/wp-plugin-install/?plugin='+l.replace(/.*?wordpress\.org\/extend\/plugins\/([^\/]+)\/.*/, '$1');">Install WP Plugin</a>. While browsing the <a href="http://wordpress.org/extend/plugins/">WordPress Plugin Directory</a>, click that bookmarklet to install the plugin you&#8217;re currently viewing.</p>
@@ -109,7 +109,7 @@ if ( isset( $_POST['form'] ) ) {
 	</div>
 <?php endif; ?>
 
-<?php if ( isset( $install ) ) : ?>
+<?php if ( isset( $install ) && $install ) : ?>
 	<div id="install-box"><h1>Install <span><?php echo htmlspecialchars( $plugin ); ?></span> on <span><?php echo htmlspecialchars( $wpdir ); ?></span> ?</h1><iframe src="<?php echo esc_url( $wpdir . 'wp-admin/plugin-install.php?tab=plugin-information&plugin=' . $plugin . '&TB_iframe=true&width=800&height=900' ); ?>" width="800" height="900" /></div>
 <?php elseif ( !$about ): ?>
 <form action="" <?php if ( $about ) { ?>method="get"<?php } else { ?>method="post"<?php } ?>>
