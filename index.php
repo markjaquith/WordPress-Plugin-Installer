@@ -111,19 +111,19 @@ if ( isset( $_POST['form'] ) ) {
 
 <?php if ( isset( $install ) && $install ) : ?>
 	<div id="install-box"><h1>Install <span><?php echo htmlspecialchars( $plugin ); ?></span> on <span><?php echo htmlspecialchars( $wpdir ); ?></span> ?</h1><iframe src="<?php echo esc_url( $wpdir . 'wp-admin/plugin-install.php?tab=plugin-information&plugin=' . $plugin . '&TB_iframe=true&width=800&height=900' ); ?>" width="800" height="900" /></div>
-<?php elseif ( !$about ): ?>
-<form action="" <?php if ( $about ) { ?>method="get"<?php } else { ?>method="post"<?php } ?>>
+<?php elseif ( !isset( $about) || !$about ): ?>
+<form action="" <?php if ( isset( $about ) && $about ) { ?>method="get"<?php } else { ?>method="post"<?php } ?>>
 <table>
 	<tr>
 		<td class="label"><label for="plugin">Plugin Slug:</label></td>
-		<td class="val"><input<?php if ( !$about ) {?> readonly="readonly"<?php } ?> type="text" name="plugin" id="plugin" value="<?php echo esc_attr( $plugin ); ?>" /></td>
+		<td class="val"><input<?php if ( !isset( $about ) || !$about ) {?> readonly="readonly"<?php } ?> type="text" name="plugin" id="plugin" value="<?php echo esc_attr( $plugin ); ?>" /></td>
 	</tr>
 	<tr>
 		<td class="label"><label for="url">WordPress URL:</label></td>
 		<td class="val"><input type="text" name="url" id="url" value="<?php echo esc_attr( $url ); ?>" /></td>
 	</tr>
 </table>
-<p id="install"><input id="s" type="submit" value="<?php if ( $about ) { ?>Get Installation Form<?php } else { ?>Install Plugin<?php } ?> &rarr;" /><?php if ( !$about ) { ?><input type="hidden" name="form" value="1" /><?php } ?></p>
+<p id="install"><input id="s" type="submit" value="<?php if ( isset( $about ) && $about ) { ?>Get Installation Form<?php } else { ?>Install Plugin<?php } ?> &rarr;" /><?php if ( !isset( $about ) || !$about ) { ?><input type="hidden" name="form" value="1" /><?php } ?></p>
 </form>
 <?php endif; ?>
 </div>
