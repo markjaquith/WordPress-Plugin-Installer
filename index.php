@@ -42,7 +42,8 @@ if ( isset( $_POST['form'] ) ) {
 				if ( !isset( $headers['X-Pingback'] ) || substr( $headers['X-Pingback'], -10 ) !== 'xmlrpc.php' )
 					throw new Exception( "This does not appear to be a WordPress installation" );
 			}
-			$headers['X-Pingback'] = $matches[1];
+			if ( isset( $matches[1] ) )
+				$headers['X-Pingback'] = $matches[1];
 		}
 		$pheaders = @get_headers( 'http://wordpress.org/extend/plugins/' . $plugin . '/', true );
 		if ( strpos( $pheaders[0], '200' ) === false ) {
