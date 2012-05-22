@@ -37,7 +37,7 @@ if ( isset( $_POST['form'] ) ) {
 			$contents = file_get_contents( $url );
 			if ( !preg_match( '#(http://[^"?\']+/xmlrpc\.php)#', $contents, $matches ) ) {
 				$headers = @get_headers( $url . 'wp-login.php', true );
-				if ( is_array( $headers['X-Pingback'] ) )
+				if ( isset( $headers['X-Pingback'] ) && is_array( $headers['X-Pingback'] ) )
 					$headers['X-Pingback'] = $headers['X-Pingback'][0];
 				if ( !isset( $headers['X-Pingback'] ) || substr( $headers['X-Pingback'], -10 ) !== 'xmlrpc.php' )
 					throw new Exception( "This does not appear to be a WordPress installation" );
