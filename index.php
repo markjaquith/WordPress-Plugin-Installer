@@ -35,7 +35,7 @@ if ( isset( $_POST['form'] ) ) {
 		if ( !isset( $headers['X-Pingback'] ) || substr( $headers['X-Pingback'], -10 ) !== 'xmlrpc.php' ) {
 			// Gonna have to look at the contents
 			$contents = file_get_contents( $url );
-			if ( !preg_match( '#(http://[^"?\']+/xmlrpc\.php)#', $contents, $matches ) ) {
+			if ( !preg_match( '#(https?://[^"?\']+/xmlrpc\.php)#', $contents, $matches ) ) {
 				$headers = @get_headers( $url . 'wp-login.php', true );
 				if ( isset( $headers['X-Pingback'] ) && is_array( $headers['X-Pingback'] ) )
 					$headers['X-Pingback'] = $headers['X-Pingback'][0];
@@ -45,7 +45,7 @@ if ( isset( $_POST['form'] ) ) {
 			if ( isset( $matches[1] ) )
 				$headers['X-Pingback'] = $matches[1];
 		}
-		$pheaders = @get_headers( 'https://wordpress.org/extend/plugins/' . $plugin . '/', true );
+		$pheaders = @get_headers( 'https://wordpress.org/plugins/' . $plugin . '/', true );
 		if ( strpos( $pheaders[0], '200' ) === false ) {
 			$focus = 'plugin';
 			throw new Exception( "The plugin slug is not valid" );
@@ -62,7 +62,7 @@ if ( isset( $_POST['form'] ) ) {
 	$confirm = true;
 	$focus = 'url';
 	try {
-		$pheaders = @get_headers( 'https://wordpress.org/extend/plugins/' . $plugin . '/', true );
+		$pheaders = @get_headers( 'https://wordpress.org/plugins/' . $plugin . '/', true );
 		if ( strpos( $pheaders[0], '200' ) === false ) {
 			$focus = 'plugin';
 			throw new Exception( "The plugin slug is not valid" );
@@ -93,7 +93,7 @@ if ( isset( $_POST['form'] ) ) {
 <?php if ( isset( $about ) && $about ) : ?>
 <p>This tool makes it easy to directly install a WordPress plugin.</p>
 <h2>Users</h2>
-<p>Drag this to your bookmarks bar: <a onclick="return false;" href="javascript:l=window.location.toString();window.location='http://coveredwebservices.com/wp-plugin-install/?plugin='+l.replace(/.*?wordpress\.org\/extend\/plugins\/([^\/]+)\/.*/, '$1');">Install WP Plugin</a>. While browsing the <a href="http://wordpress.org/extend/plugins/">WordPress Plugin Directory</a>, click that bookmarklet to install the plugin you&#8217;re currently viewing.</p>
+<p>Drag this to your bookmarks bar: <a onclick="return false;" href="javascript:l=window.location.toString();window.location='http://coveredwebservices.com/wp-plugin-install/?plugin='+l.replace(/.*?wordpress\.org\/extend\/plugins\/([^\/]+)\/.*/, '$1');">Install WP Plugin</a>. While browsing the <a href="https://wordpress.org/plugins/">WordPress Plugin Directory</a>, click that bookmarklet to install the plugin you&#8217;re currently viewing.</p>
 <h2>Developers:</h2>
 <p>Craft a URL like this:</p>
 <p><code>http://coveredwebservices.com/wp-plugin-install/?plugin=your-plugin-slug</code></p>
