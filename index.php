@@ -45,7 +45,7 @@ if ( isset( $_POST['form'] ) ) {
 			if ( isset( $matches[1] ) )
 				$headers['X-Pingback'] = $matches[1];
 		}
-		$pheaders = @get_headers( 'http://wordpress.org/extend/plugins/' . $plugin . '/', true );
+		$pheaders = @get_headers( 'https://wordpress.org/extend/plugins/' . $plugin . '/', true );
 		if ( strpos( $pheaders[0], '200' ) === false ) {
 			$focus = 'plugin';
 			throw new Exception( "The plugin slug is not valid" );
@@ -62,7 +62,7 @@ if ( isset( $_POST['form'] ) ) {
 	$confirm = true;
 	$focus = 'url';
 	try {
-		$pheaders = @get_headers( 'http://wordpress.org/extend/plugins/' . $plugin . '/', true );
+		$pheaders = @get_headers( 'https://wordpress.org/extend/plugins/' . $plugin . '/', true );
 		if ( strpos( $pheaders[0], '200' ) === false ) {
 			$focus = 'plugin';
 			throw new Exception( "The plugin slug is not valid" );
