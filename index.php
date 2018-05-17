@@ -93,10 +93,10 @@ if ( isset( $_POST['form'] ) ) {
 <?php if ( isset( $about ) && $about ) : ?>
 <p>This tool makes it easy to directly install a WordPress plugin.</p>
 <h2>Users</h2>
-<p>Drag this to your bookmarks bar: <a onclick="return false;" href="javascript:l=window.location.toString();window.location='http://coveredwebservices.com/wp-plugin-install/?plugin='+l.replace(/.*?wordpress\.org\/extend\/plugins\/([^\/]+)\/.*/, '$1');">Install WP Plugin</a>. While browsing the <a href="https://wordpress.org/plugins/">WordPress Plugin Directory</a>, click that bookmarklet to install the plugin you&#8217;re currently viewing.</p>
+<p>Drag this to your bookmarks bar: <a onclick="return false;" href="javascript:l=window.location.toString();window.location='http://coveredweb.com/wp-plugin-install/?plugin='+l.replace(/.*?wordpress\.org\/extend\/plugins\/([^\/]+)\/.*/, '$1');">Install WP Plugin</a>. While browsing the <a href="https://wordpress.org/plugins/">WordPress Plugin Directory</a>, click that bookmarklet to install the plugin you&#8217;re currently viewing.</p>
 <h2>Developers:</h2>
 <p>Craft a URL like this:</p>
-<p><code>http://coveredwebservices.com/wp-plugin-install/?plugin=your-plugin-slug</code></p>
+<p><code>http://coveredweb.com/wp-plugin-install/?plugin=your-plugin-slug</code></p>
 <?php else : ?>
 <p><a href="/wp-plugin-install/">This tool</a> helps you install WordPress plugins.</p>
 <p>If you would like to install the WordPress plugin listed below, please provide your WordPress URL and click &#8220;Install Plugin.&#8221;</p>
